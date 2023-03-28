@@ -5,6 +5,7 @@ let imgDiv = document.querySelector('.img-container')
 let prev = document.querySelector('.left-arrow') 
 let next = document.querySelector('.right-arrow') 
 
+// creare la struttura html
 for (let i = 0; i < imgList.length; i++) {
 
     imgDiv.innerHTML += `
@@ -40,6 +41,7 @@ next.addEventListener('click', function() {
         itemToActive = document.querySelector('.item.first-img')
     }
 
+    // spostamento classe active
     activeItem.classList.remove('active');
     itemToActive.classList.add('active');
 
@@ -58,6 +60,7 @@ prev.addEventListener('click', function() {
         itemToActive = document.querySelector('.item.last-img')
     }
 
+    // spostamento classe active
     activeItem.classList.remove('active');
     itemToActive.classList.add('active');
 
