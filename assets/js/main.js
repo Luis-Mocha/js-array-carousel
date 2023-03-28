@@ -5,7 +5,6 @@ let imgDiv = document.querySelector('.img-container')
 let prev = document.querySelector('.left-arrow') 
 let next = document.querySelector('.right-arrow') 
 
-// creare la struttura html
 for (let i = 0; i < imgList.length; i++) {
 
     imgDiv.innerHTML += `
@@ -13,13 +12,20 @@ for (let i = 0; i < imgList.length; i++) {
         <img src="./assets/img/0${imgList[i]}.webp" alt="Foto Carosello" class="img-fluid">   
     </div>
     `
-    document.querySelector('.item').classList.add('active')
-
-    // if (i=0) {
-    //     document.querySelector('.item').classList.add('first-img')
-    // }
-
 }
+
+// Aggiungo la classe "ACTIVE" al primo elemento
+document.querySelector('.item').classList.add('active')
+// Seleziono tutti gli elementi con item
+let itemElements = document.querySelectorAll('.item');
+console.log(itemElements);
+// Al primo elemento item aggiungo la classe "FIRST-IMG"
+itemElements[0].classList.add('first-img')
+// All'ultimo item aggiungo la classe "LAST-IMG"
+itemElements[4].classList.add('last-img')
+
+
+
 
 // next image
 next.addEventListener('click', function() {
