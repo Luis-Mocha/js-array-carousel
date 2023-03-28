@@ -22,7 +22,7 @@ console.log(itemElements);
 // Al primo elemento item aggiungo la classe "FIRST-IMG"
 itemElements[0].classList.add('first-img')
 // All'ultimo item aggiungo la classe "LAST-IMG"
-itemElements[4].classList.add('last-img')
+itemElements[itemElements.length - 1].classList.add('last-img')
 
 
 
@@ -35,6 +35,10 @@ next.addEventListener('click', function() {
 
     let itemToActive = activeItem.nextElementSibling;
     console.log(itemToActive);
+
+    if (activeItem.classList.contains('last-img')) {
+        itemToActive = document.querySelector('.item.first-img')
+    }
 
     activeItem.classList.remove('active');
     itemToActive.classList.add('active');
@@ -49,6 +53,10 @@ prev.addEventListener('click', function() {
 
     let itemToActive = activeItem.previousElementSibling;
     console.log(itemToActive);
+
+    if (activeItem.classList.contains('first-img')) {
+        itemToActive = document.querySelector('.item.last-img')
+    }
 
     activeItem.classList.remove('active');
     itemToActive.classList.add('active');
