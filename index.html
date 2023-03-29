@@ -13,24 +13,30 @@
 </head>
 <body>
     <main>
-        <h1 class="text-uppercase text-center fw-bold my-5"> 
+        <h1 class="text-uppercase text-center fw-bold my-4"> 
             gallery
         </h1>
-        <div id="carosello" class="position-relative d-flex flex-column justify-content-center align-items-center container-sm">
+        <div id="carosello" class="container-sm position-relative d-flex flex-column align-items-center mb-5">
             <div class="left-arrow text-light mt-1">
                 &mapstoup;
             </div>
     
-            <div class="img-container">
-    
+            <div class="img-container position-relative">
+
+                <div id="thumbs" class="position-absolute d-flex flex-column justify-content-between">
+                    <img src="./assets/img/01.webp" alt="" class="thumb-active first-thumb">
+                    <img src="./assets/img/02.webp" alt="">
+                    <img src="./assets/img/03.webp" alt="">
+                    <img src="./assets/img/04.webp" alt="">
+                    <img src="./assets/img/05.webp" alt="" class="last-thumb">
+                </div>
             </div>
     
             <div class="right-arrow text-light mb-1">
                 &mapstodown;
-            </div>
-    
-        </div>    
-    
+            </div> 
+        </div> 
+         
     </main>
 
     <!-- link Bootstrap Js -->

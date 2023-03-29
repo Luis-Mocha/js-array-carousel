@@ -1,9 +1,10 @@
 let imgList = [1, 2, 3, 4, 5];
 console.log(imgList)
 
-let imgDiv = document.querySelector('.img-container')
-let prev = document.querySelector('.left-arrow') 
-let next = document.querySelector('.right-arrow') 
+let imgDiv = document.querySelector('.img-container');
+let thukbDiv = document.querySelector('#thumbs')
+let prev = document.querySelector('.left-arrow');
+let next = document.querySelector('.right-arrow');
 
 // creare la struttura html
 for (let i = 0; i < imgList.length; i++) {
@@ -15,13 +16,14 @@ for (let i = 0; i < imgList.length; i++) {
     `
 }
 
-// Aggiungo la classe "ACTIVE" al primo elemento
-document.querySelector('.item').classList.add('active')
+/* Aggiungo la classe "ACTIVE" al primo elemento
+document.querySelector('.item').classList.add('active') */
+
 // Seleziono tutti gli elementi con item
 let itemElements = document.querySelectorAll('.item');
 console.log(itemElements);
-// Al primo elemento item aggiungo la classe "FIRST-IMG"
-itemElements[0].classList.add('first-img')
+// Al primo elemento item aggiungo la classe "FIRST-IMG" e "ACTIVE"
+itemElements[0].classList.add('first-img','active')
 // All'ultimo item aggiungo la classe "LAST-IMG"
 itemElements[itemElements.length - 1].classList.add('last-img')
 
@@ -45,6 +47,16 @@ next.addEventListener('click', function() {
     activeItem.classList.remove('active');
     itemToActive.classList.add('active');
 
+    // -- per le thumb
+    let activeThumb = document.querySelector('.thumb-active');
+    let thumbToActive = activeThumb.nextElementSibling;
+
+    if (activeThumb.classList.contains('last-thumb')) {
+        thumbToActive = document.querySelector('.first-thumb')
+    }
+
+    activeThumb.classList.remove('thumb-active');
+    thumbToActive.classList.add('thumb-active');
 })
 
 // previous image
@@ -64,4 +76,19 @@ prev.addEventListener('click', function() {
     activeItem.classList.remove('active');
     itemToActive.classList.add('active');
 
+    // -- per le thumb
+    let activeThumb = document.querySelector('.thumb-active');
+    let thumbToActive = activeThumb.previousElementSibling;
+
+    if (activeThumb.classList.contains('first-thumb')) {
+        thumbToActive = document.querySelector('.last-thumb')
+    }
+
+    activeThumb.classList.remove('thumb-active');
+    thumbToActive.classList.add('thumb-active');
 })
+
+// THUMBS
+
+let thumbElements = document.querySelectorAll('#thumbs img');
+console.log(thumbElements);
